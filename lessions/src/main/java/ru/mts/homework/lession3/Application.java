@@ -1,6 +1,6 @@
 package ru.mts.homework.lession3;
 
-public class Main {
+public class Application {
     public static void main(String[] args) {
         CreateAnimalServiceImpl test1 = new CreateAnimalServiceImpl();
         test1.createAnimals("dog");
