@@ -15,7 +15,6 @@ class SearchServiceTest {
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: пустой объект")
     void checkLeapYearAnimalWithNullObject() {
-
         InvalidAnimalException runtimeException = assertThrows(InvalidAnimalException.class, () -> serv1.checkLeapYearAnimal(null));
 
         assertEquals("На вход пришёл некорректный объект животного " + LocalDate.now(), runtimeException.getMessage());
@@ -24,34 +23,22 @@ class SearchServiceTest {
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: НЕ пустой объект")
     void checkLeapYearAnimalWithoutNullObject() {
-        try {
-            Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
-            serv1.checkLeapYearAnimal(catTest);
-        } catch (Exception e) {
-            fail("Не должно происходить исключений");
-        }
+        Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
+        assertDoesNotThrow(() -> serv1.checkLeapYearAnimal(catTest));
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: на вход объект животное")
     void checkLeapYearAnimalWithObjectAnimal() {
-        try {
-            Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
-            serv1.checkLeapYearAnimal(catTest);
-        } catch (Exception e) {
-            fail("Не должно происходить исключений");
-        }
+        Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
+        assertDoesNotThrow(() -> serv1.checkLeapYearAnimal(catTest));
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: на вход НЕ пустая дата рождения")
     void checkLeapYearAnimalWithDiffObject() {
-        try {
-            Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
-            serv1.checkLeapYearAnimal(catTest);
-        } catch (Exception e) {
-            fail("Не должно происходить исключений");
-        }
+        Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
+        assertDoesNotThrow(() -> serv1.checkLeapYearAnimal(catTest));
     }
 
     @org.junit.jupiter.api.Test
@@ -68,17 +55,14 @@ class SearchServiceTest {
     void checkLeapYearAnimalWithLeapYear() throws InvalidAnimalBirthDateException {
         Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.of(2000, 1, 1));
         boolean result = serv1.checkLeapYearAnimal(catTest);
-        assertEquals(true, result);
-        assertNotEquals(false, result);
+        assertTrue(result);
     }
 
     @org.junit.jupiter.api.Test
-    @DisplayName("Проверка: на вход высокосный год")
+    @DisplayName("Проверка: на вход НЕ высокосный год")
     void checkLeapYearAnimalWithoutLeapYear() throws InvalidAnimalBirthDateException {
         Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.of(2001, 1, 1));
         boolean result = serv1.checkLeapYearAnimal(catTest);
-        assertEquals(false, result);
-        assertNotEquals(true, result);
+        assertFalse(result);
     }
-
 }
