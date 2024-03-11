@@ -15,7 +15,6 @@ class SearchServiceTest {
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: пустой объект")
     void checkLeapYearAnimalWithNullObject() {
-
         InvalidAnimalException runtimeException = assertThrows(InvalidAnimalException.class, () -> serv1.checkLeapYearAnimal(null));
 
         assertEquals("На вход пришёл некорректный объект животного " + LocalDate.now(), runtimeException.getMessage());
@@ -23,35 +22,23 @@ class SearchServiceTest {
 
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: НЕ пустой объект")
-    void checkLeapYearAnimalWithoutNullObject() {
-        try {
-            Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
-            serv1.checkLeapYearAnimal(catTest);
-        } catch (Exception e) {
-            fail("Не должно происходить исключений");
-        }
+    void checkLeapYearAnimalWithoutNullObject() throws InvalidAnimalBirthDateException {
+        Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
+        assertDoesNotThrow(() -> serv1.checkLeapYearAnimal(catTest));
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: на вход объект животное")
     void checkLeapYearAnimalWithObjectAnimal() {
-        try {
-            Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
-            serv1.checkLeapYearAnimal(catTest);
-        } catch (Exception e) {
-            fail("Не должно происходить исключений");
-        }
+        Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
+        assertDoesNotThrow(() -> serv1.checkLeapYearAnimal(catTest));
     }
 
     @org.junit.jupiter.api.Test
     @DisplayName("Проверка: на вход НЕ пустая дата рождения")
     void checkLeapYearAnimalWithDiffObject() {
-        try {
-            Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
-            serv1.checkLeapYearAnimal(catTest);
-        } catch (Exception e) {
-            fail("Не должно происходить исключений");
-        }
+        Cat catTest = new Cat("Сиамская", "Муся", "Ласковый", 666, LocalDate.now());
+        assertDoesNotThrow(() -> serv1.checkLeapYearAnimal(catTest));
     }
 
     @org.junit.jupiter.api.Test
@@ -80,5 +67,4 @@ class SearchServiceTest {
         assertEquals(false, result);
         assertNotEquals(true, result);
     }
-
 }
