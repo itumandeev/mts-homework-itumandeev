@@ -1,10 +1,9 @@
 package ru.mts.homework.lession3;
 
+import javax.print.attribute.standard.JobKOctets;
 import java.security.SecureRandom;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Интерфейс с методами
@@ -23,16 +22,20 @@ public interface CreateAnimalService {
     List<String> breeds = Arrays.asList("Лесной", "Степной", "Пустынный", "Капустный", "Деревянный", "Камышовый", "Домашний", "Какашный",
             "Диванный", "Коренной");
 
-    default void createAnimals(String type) {
+    default Map<String, List<Animal>> createAnimals(String type) {
+        Map<String, List<Animal>> animalMap = new HashMap<>();
+        ArrayList<Animal> animalList = new ArrayList<Animal>();
         int counter = 10;
         System.out.println("Создаем животное " + type + " " + counter + " раз");
         while (counter != 0) {
-            createAnimal(type);
+            animalList.add(createAnimal(type));
             counter--;
         }
+        animalMap.put(type,animalList);
+        return animalMap;
     }
 
-    default Object createAnimal(String type) {
+    default Animal createAnimal(String type) {
         switch (type) {
             case ("cat"): {
                 Cat cat = new Cat(
@@ -40,10 +43,7 @@ public interface CreateAnimalService {
                         getRandomParam(names),
                         getRandomParam(characters),
                         new Random().nextDouble(),
-                        null
-                        //getRandomDate())
-                        );
-
+                        getRandomDate());
                 System.out.println(cat);
                 return cat;
             }
@@ -70,7 +70,6 @@ public interface CreateAnimalService {
                         getRandomParam(breeds),
                         getRandomParam(names),
                         getRandomDate());
-
                 System.out.println(wolf);
                 return wolf;
             }

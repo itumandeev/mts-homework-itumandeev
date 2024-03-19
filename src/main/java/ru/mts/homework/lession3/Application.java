@@ -8,6 +8,5 @@ public class Application {
         test1.createAnimals(3, "wolf");
         System.out.println("  ");
         test1.createWrapper("cat");
-
     }
 }

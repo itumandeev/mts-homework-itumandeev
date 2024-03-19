@@ -1,5 +1,10 @@
 package ru.mts.homework.lession3;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Класс реализующий интерфейс CreateAnimalServiceс
  *
@@ -8,21 +13,29 @@ package ru.mts.homework.lession3;
  */
 
 public class CreateAnimalServiceImpl implements CreateAnimalService {
-    public void createAnimals(int count, String type) {
+    public Map<String, List<Animal>> createAnimals(int count, String type) {
+        Map<String, List<Animal>> animalMap = new HashMap<>();
+        ArrayList<Animal> animalList = new ArrayList<Animal>();
         System.out.println("Создаем животное " + type + " " + count + " раз");
         for (int i = count; i > 0; i--) {
-            createAnimal(type);
+            animalList.add(createAnimal(type));
         }
+        animalMap.put(type, animalList);
+        return animalMap;
     }
 
     @Override
-    public void createAnimals(String type) {
+    public Map<String, List<Animal>> createAnimals(String type) {
+        Map<String, List<Animal>> animalMap = new HashMap<>();
+        ArrayList<Animal> animalList = new ArrayList<Animal>();
         int counter = 5;
         System.out.println("Создаем животное " + type + " " + counter + " раз");
         do {
-            createAnimal(type);
+            animalList.add(createAnimal(type));
             counter--;
         } while (counter > 0);
+        animalMap.put(type, animalList);
+        return animalMap;
     }
 
     public void createWrapper(String type) {
