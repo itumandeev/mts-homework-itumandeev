@@ -5,6 +5,8 @@ import ru.mts.homework.lesson3.CreateAnimalServiceImpl;
 import ru.mts.homework.lesson6.AnimalsRepositoryImp;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,5 +30,9 @@ public class Applicationlesson9 {
         System.out.println("-------");
         ResultReader.readAnimalsFromJson();
         ResultReader.countJsonLines();
+
+        Path dataPath = Paths.get("src", "main", "java", "ru", "mts", "homework", "resources", "animals", "test.txt");
+        FilesExample.write(dataPath,"Строка для записи в текстовый файл в кодировке Windis-1251");
+        FilesExample.readAll();
     }
 }

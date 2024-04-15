@@ -60,38 +60,26 @@ public abstract class AbstractAnimal implements Animal, Externalizable {
         this.character = character;
         this.secretInfo = secretInfo;
         this.birthDate = birthDate;
-        if (Objects.isNull(this.secretInfo)) {
-            setSecretInfo();
-        }
+        setSecretInfo();
     }
 
     public AbstractAnimal(String breed, String name, Double cost) {
         this.breed = breed;
         this.name = name;
         this.cost = cost;
-        if (Objects.isNull(this.secretInfo)) {
-            setSecretInfo();
-        }
+        setSecretInfo();
     }
 
     public AbstractAnimal(String breed, String name) {
         this.breed = breed;
         this.name = name;
-        if (Objects.isNull(this.secretInfo)) {
-            setSecretInfo();
-        }
+        setSecretInfo();
     }
 
     public AbstractAnimal() {
-        if (Objects.isNull(this.secretInfo)) {
-            setSecretInfo();
-        }
-        if (Objects.isNull(this.birthDate)) {
-            this.birthDate = LocalDate.now();
-        }
-        if (Objects.isNull(this.cost)) {
-            this.cost = 1000D;
-        }
+        setSecretInfo();
+        this.birthDate = LocalDate.now();
+        this.cost = 1000D;
     }
 
     public String getSecretInfomation() {

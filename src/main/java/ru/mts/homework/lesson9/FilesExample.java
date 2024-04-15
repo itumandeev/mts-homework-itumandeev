@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 public class FilesExample {
     static void createDirectory() {
         Path path = Paths.get("src", "main", "java", "ru", "mts", "homework", "resources", "animals");
-
         try {
             Files.createDirectory(path);
         } catch (IOException e) {
@@ -17,21 +16,17 @@ public class FilesExample {
         }
     }
 
-    static void createFile(String pth) {
-        Path path = Paths.get(pth);
-
+    static void createFile(Path pth) {
         try {
-            Files.createFile(path);
+            Files.createFile(pth);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    static void write(String pth, String txt) {
-        Path path = Paths.get(pth);
-
+    static void write(Path pth, String txt) {
         try {
-            Files.writeString(path, txt);
+            Files.writeString(pth, txt, Charset.forName("Windows-1251"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -47,9 +42,9 @@ public class FilesExample {
     }
 
     static void readAll() {
-        Path path = Paths.get("src", "main", "java", "ru", "mts", "homework", "resources", "animals", "logData.txt");
+        Path path = Paths.get("src", "main", "java", "ru", "mts", "homework", "resources", "animals", "test.txt");
         try {
-            System.out.println(Files.readAllLines(path, Charset.forName("UTF-16")));
+            System.out.println(Files.readAllLines(path, Charset.forName("Windows-1251")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
