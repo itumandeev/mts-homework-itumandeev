@@ -4,6 +4,8 @@ import ru.mts.homework.lesson3.CreateAnimalServiceImpl;
 import ru.mts.homework.lesson5.exeptions.InvalidAnimalBirthDateException;
 import ru.mts.homework.lesson5.exeptions.InvalidAnimalException;
 
+import java.io.IOException;
+
 public class ApplicationExample {
     public static void main(String[] args) {
         CreateAnimalServiceImpl test1 = new CreateAnimalServiceImpl();
@@ -18,6 +20,8 @@ public class ApplicationExample {
             serv1.checkLeapYearAnimal(catTest);
         } catch (InvalidAnimalBirthDateException e) {
             throw new InvalidAnimalException("Работа метода завершилась ошибкой", e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

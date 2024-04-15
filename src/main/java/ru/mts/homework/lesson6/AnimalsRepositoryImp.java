@@ -3,6 +3,7 @@ package ru.mts.homework.lesson6;
 import ru.mts.homework.lesson3.Animal;
 import ru.mts.homework.lesson5.SearchService;
 import ru.mts.homework.lesson6.exeptions.InvalidAnimalListException;
+import ru.mts.homework.lesson9.SaveInfoToFile;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -70,6 +71,7 @@ public class AnimalsRepositoryImp implements AnimalRepository, SearchService {
                         .max(Comparator.comparing(Animal::getAge))
                         .map((a) -> result.put(a, a.getAge()));
             }
+            SaveInfoToFile.saveAnimalsToJson(result.keySet().stream().collect(Collectors.toList()));
             return result;
         }
     }

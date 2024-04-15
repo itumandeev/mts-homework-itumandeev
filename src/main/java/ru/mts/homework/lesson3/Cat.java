@@ -16,9 +16,16 @@ public class Cat extends Pet {
      * @param cost      - цена
      * @param birthDate - дата рождения
      */
-    public Cat(String breed, String name, String character, double cost, LocalDate birthDate) {
-        super(breed, name, character, cost, birthDate);
+    public Cat() {
+        super();
+        name = "Cat";
+        breed = "Cat";
     }
+
+    public Cat(String breed, String name, String character, double cost, LocalDate birthDate) {
+        super("Cat", name, character, cost, birthDate);
+    }
+
 
     @Override
     public String toString() {
@@ -28,6 +35,7 @@ public class Cat extends Pet {
                 ", cost=" + cost +
                 ", character='" + character + '\'' +
                 ", birthDate='" + birthDate + '\'' +
+                ", secretInfo='" + secretInfo + '\'' +
                 '}';
     }
 }

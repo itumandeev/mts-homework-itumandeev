@@ -1,19 +1,20 @@
 package ru.mts.homework.lesson3;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Класс реализующий интерфейс CreateAnimalServiceс
+ * Класс реализующий интерфейс CreateAnimalService
  *
  * @author ITUMANDEEV
  * version 0.2
  */
 
 public class CreateAnimalServiceImpl implements CreateAnimalService {
-    public Map<String, List<Animal>> createAnimals(int count, String type) {
+    public Map<String, List<Animal>> createAnimals(int count, String type) throws IOException {
         Map<String, List<Animal>> animalMap = new HashMap<>();
         ArrayList<Animal> animalList = new ArrayList<Animal>();
         System.out.println("Создаем животное " + type + " " + count + " раз");
@@ -25,7 +26,7 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
     }
 
     @Override
-    public Map<String, List<Animal>> createAnimals(String type) {
+    public Map<String, List<Animal>> createAnimals(String type) throws IOException {
         Map<String, List<Animal>> animalMap = new HashMap<>();
         ArrayList<Animal> animalList = new ArrayList<Animal>();
         int counter = 5;
@@ -38,7 +39,7 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
         return animalMap;
     }
 
-    public void createWrapper(String type) {
+    public void createWrapper(String type) throws IOException {
         CreateAnimalService.super.createAnimals(type);
     }
 }
