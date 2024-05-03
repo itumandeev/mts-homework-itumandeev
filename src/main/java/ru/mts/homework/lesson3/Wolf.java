@@ -18,6 +18,10 @@ public class Wolf extends Predator {
         super(breed, name, birthDate);
     }
 
+    Wolf() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "Wolf{" +
@@ -26,6 +30,7 @@ public class Wolf extends Predator {
                 ", cost=" + cost +
                 ", character='" + character + '\'' +
                 ", birthDate='" + birthDate + '\'' +
+                ", secretInfo='" + secretInfo + '\'' +
                 '}';
     }
 }

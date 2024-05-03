@@ -2,6 +2,7 @@ package ru.mts.homework.lesson3;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 /**
  * @author ITUMANDEEV
@@ -18,18 +19,19 @@ public class Predator extends AbstractAnimal {
      * @param birthDate - дата рождения
      */
     Predator(String breed, String name, String character, double cost, LocalDate birthDate) {
-        this.breed = breed;
-        this.name = name;
+        super(breed,name,cost);
         this.character = character;
-        this.cost = cost;
         this.birthDate = birthDate;
     }
 
     Predator(String breed, String name, LocalDate birthDate) {
-        this.breed = breed;
-        this.name = name;
+        super(breed,name);
         this.birthDate = birthDate;
+        if (Objects.isNull(this.secretInfo)) {
+            setSecretInfo();
+        }
     }
+    Predator(){}
 
     /**
      * функция получения породы

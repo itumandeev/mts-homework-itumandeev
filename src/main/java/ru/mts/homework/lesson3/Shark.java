@@ -17,7 +17,9 @@ public class Shark extends Predator {
     Shark(String breed, String name, LocalDate birthDate) {
         super(breed, name, birthDate);
     }
-
+    Shark(){
+        super();
+    }
     @Override
     public String toString() {
         return "Shark{" +
@@ -26,6 +28,7 @@ public class Shark extends Predator {
                 ", cost=" + cost +
                 ", character='" + character + '\'' +
                 ", birthDate='" + birthDate + '\'' +
+                ", secretInfo='" + secretInfo + '\'' +
                 '}';
     }
 }

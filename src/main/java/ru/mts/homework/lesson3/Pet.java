@@ -2,6 +2,7 @@ package ru.mts.homework.lesson3;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 /**
  * @author ITUMANDEEV
@@ -18,11 +19,11 @@ public class Pet extends AbstractAnimal {
      * @param birthDate - дата рождения
      */
     Pet(String breed, String name, String character, double cost, LocalDate birthDate) {
-        this.breed = breed;
-        this.name = name;
+        super(breed,name,cost);
         this.character = character;
-        this.cost = cost;
         this.birthDate = birthDate;
+    }
+    Pet(){
     }
 
     /**

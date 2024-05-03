@@ -1,5 +1,8 @@
 package ru.mts.homework.lesson3;
 
+import ru.mts.homework.lesson9.SaveInfoToFile;
+
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.*;
@@ -21,7 +24,7 @@ public interface CreateAnimalService {
     List<String> breeds = Arrays.asList("Лесной", "Степной", "Пустынный", "Капустный", "Деревянный", "Камышовый", "Домашний", "Какашный",
             "Диванный", "Коренной");
 
-    default Map<String, List<Animal>> createAnimals(String type) {
+    default Map<String, List<Animal>> createAnimals(String type) throws IOException {
         Map<String, List<Animal>> animalMap = new HashMap<>();
         ArrayList<Animal> animalList = new ArrayList<Animal>();
         int counter = 10;
@@ -34,9 +37,9 @@ public interface CreateAnimalService {
         return animalMap;
     }
 
-    default Animal createAnimal(String type) {
+    default Animal createAnimal(String type) throws IOException {
         switch (type) {
-            case ("cat"): {
+            case ("Cat"): {
                 Cat cat = new Cat(
                         getRandomParam(breeds),
                         getRandomParam(names),
@@ -44,9 +47,10 @@ public interface CreateAnimalService {
                         new Random().nextDouble(),
                         getRandomDate());
                 System.out.println(cat);
+                SaveInfoToFile.saveAnimal(cat);
                 return cat;
             }
-            case ("dog"): {
+            case ("Dog"): {
                 Dog dog = new Dog(
                         getRandomParam(breeds),
                         getRandomParam(names),
@@ -54,22 +58,25 @@ public interface CreateAnimalService {
                         new Random().nextDouble(),
                         getRandomDate());
                 System.out.println(dog);
+                SaveInfoToFile.saveAnimal(dog);
                 return dog;
             }
-            case ("shark"): {
+            case ("Shark"): {
                 Shark shark = new Shark(
                         getRandomParam(breeds),
                         getRandomParam(names),
                         getRandomDate());
                 System.out.println(shark);
+                SaveInfoToFile.saveAnimal(shark);
                 return shark;
             }
-            case ("wolf"): {
+            case ("Wolf"): {
                 Wolf wolf = new Wolf(
                         getRandomParam(breeds),
                         getRandomParam(names),
                         getRandomDate());
                 System.out.println(wolf);
+                SaveInfoToFile.saveAnimal(wolf);
                 return wolf;
             }
             default: {

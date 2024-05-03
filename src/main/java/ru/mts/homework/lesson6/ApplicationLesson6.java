@@ -6,13 +6,14 @@ import ru.mts.homework.lesson3.CreateAnimalServiceImpl;
 import ru.mts.homework.lesson3.Dog;
 import ru.mts.homework.lesson5.exeptions.InvalidAnimalBirthDateException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ApplicationLesson6 {
-    public static void main(String[] args) throws InvalidAnimalBirthDateException {
+    public static void main(String[] args) throws InvalidAnimalBirthDateException, IOException {
         AnimalsRepositoryImp anRep = new AnimalsRepositoryImp();
         CreateAnimalServiceImpl test1 = new CreateAnimalServiceImpl();
         Map<String, List<Animal>> animalMap = new HashMap<>();

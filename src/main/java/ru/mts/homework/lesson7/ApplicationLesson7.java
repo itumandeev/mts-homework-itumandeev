@@ -4,11 +4,12 @@ import ru.mts.homework.lesson3.Animal;
 import ru.mts.homework.lesson3.CreateAnimalServiceImpl;
 import ru.mts.homework.lesson6.AnimalsRepositoryImp;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public class ApplicationLesson7 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         AnimalsRepositoryImp anRep = new AnimalsRepositoryImp();
         CreateAnimalServiceImpl test1 = new CreateAnimalServiceImpl();
         Map<String, List<Animal>> animalMap;

@@ -20,6 +20,10 @@ public class Dog extends Pet {
         super(breed, name, character, cost, birthDate);
     }
 
+    Dog() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "Dog{" +
@@ -29,6 +33,7 @@ public class Dog extends Pet {
                 ", character='" + character + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 ", age='" + getAge() + '\'' +
+                ", secretInfo='" + secretInfo + '\'' +
                 '}';
     }
 }

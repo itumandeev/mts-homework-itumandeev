@@ -9,7 +9,7 @@ public class RandNumbers implements Callable<Long> {
 
     private final int listSize;
 
-    RandNumbers(int listSize){
+    RandNumbers(int listSize) {
 
         this.listSize = listSize;
     }
