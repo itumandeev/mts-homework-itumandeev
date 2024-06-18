@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="init_data_animal_type" author="itumandeev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="animal_type"></tableExists>
+        </preConditions>
+        <insert tableName="animal_type">
+            <column name="type" value="Хищник"></column>
+            <column name="extra_info" value="Опасны"></column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="init_data_animal" author="itumandeev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="animal"></tableExists>
+        </preConditions>
+        <insert tableName="animal">
+            <column name="name" value="Котопес"></column>
+            <column name="breed" value="Безродный"></column>
+            <column name="cost" value="123123.2"></column>
+            <column name="character" value="Буйный"></column>
+            <column name="secretinfo" value="ты думал как он какает?"></column>
+            <column name="type_id" value="1"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
