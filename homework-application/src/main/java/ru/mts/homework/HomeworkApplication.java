@@ -12,8 +12,6 @@ import ru.mts.homework.entity.AnimalType;
 import ru.mts.homework.service.AnimalService;
 import ru.mts.homework.service.AnimalTypeService;
 
-import java.util.List;
-
 @SpringBootApplication
 @ComponentScan(basePackages = "ru.mts.*")
 public class HomeworkApplication {
@@ -26,24 +24,7 @@ public class HomeworkApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HomeworkApplication.class, args);
-    }
-
-    @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-            AnimalType animalType1 = new AnimalType("Травоядные", "Боятся хищников");
-            System.out.println("Выполнено создание типа1");
-            animalTypeService.save(animalType1);
-            AnimalType animalType2 = new AnimalType("Домашние животные", "ласковые");
-            System.out.println("Выполнено создание типа2");
-            animalTypeService.save(animalType2);
-            System.out.println("Выполнено сохранение типа");
-
-            Animal animal1 = new Animal("Барсик","сиамский",12312.1,"спокойный","ссыт в тапки");
-            animal1.setAnimalType(animalTypeService.findByType("Домашние животные"));
-            System.out.println("Выполнено создание животного");
-            animalService.save(animal1);
-            System.out.println("Выполнено сохранение животного");
-        };
+        org.apache.log4j.BasicConfigurator.configure();
+        System.setProperty("log4j.debug", "");
     }
 }
